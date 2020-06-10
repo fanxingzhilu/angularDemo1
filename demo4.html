@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制器</title>
+    <script src="angular.min.js"></script>
+    <script>
+        /*自定义模块*/
+        var app=angular.module("myapp",[]);
+        app.controller("myController",function ($scope) {
+            $scope.add=function () {
+               return parseInt($scope.x)+parseInt($scope.y) ;
+            }
+        });
+    </script>
+</head>
+<body ng-app="myapp" ng-controller="myController">
+    x: <input type="text" ng-model="x"><br>
+    y: <input type="text" ng-model="y"><br>
+    <!--调用函数-->
+    结果:{{add()}}
+</body>
+</html>

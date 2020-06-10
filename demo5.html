@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环遍历</title>
+    <script src="angular.min.js"></script>
+    <script>
+        /*自定义模块*/
+        var app=angular.module("myapp",[]);
+        app.controller("myController",function ($scope) {
+            $scope.arrayList=["赵敏","小昭","周芷若","阿离"];
+        });
+    </script>
+</head>
+<!--指定模块和控制器-->
+<body ng-app="myapp" ng-controller="myController">
+   <h1 ng-repeat="x in arrayList">{{x}}</h1>
+</body>
+</html>

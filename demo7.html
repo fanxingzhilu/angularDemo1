@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>http</title>
+    <script src="angular.min.js"></script>
+    <script>
+        /*自定义模块*/
+        var app=angular.module("myapp",[]);
+        app.controller("myController",function ($scope,$http) {
+           $scope.findAll=function () {
+              $http.get('demo.json').success(
+                  function (response) {
+                  $scope.list=response;
+              }
+              )
+           }
+        });
+    </script>
+</head>
+<!--指定模块和控制器-->
+<body ng-app="myapp" ng-controller="myController" ng-init="findAll()">
+   <h1 ng-repeat="x in list">{{x.name}},{{x.age}},{{x.sex}}</h1>
+</body>
+</html>
